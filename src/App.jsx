@@ -1,11 +1,8 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import {BrowserRouter} from "react-router-dom"
+import { Navbar } from "./components";
+// import './App.css'
+// DO NOT TOUCH SUPABASE
 // import supabase from './superbase_backend_client'
-function App() {
-  const [count, setCount] = useState(0)
 
 const App = () => {
   return (
