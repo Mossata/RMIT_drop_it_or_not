@@ -1,5 +1,4 @@
-import Navbar from './Navbar';
+import Navbar from "./Navbar";
+import MainPage from "./MainPage";
 
-export {
-  Navbar
-}
+export { Navbar, MainPage };
