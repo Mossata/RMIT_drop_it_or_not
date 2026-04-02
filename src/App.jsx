@@ -7,8 +7,11 @@ import { Navbar, MainPage } from "./components";
 const App = () => {
   return (
     <BrowserRouter>
-      <div className='relative z-0 bg-primary'>
-          <MainPage />
+      <div className="relative z-0 bg-primary">
+        <Navbar />
+        <div>
+          <h1>Welcome to Drop it or not</h1>
+        </div>
       </div>
     </BrowserRouter>
   );
