@@ -1,3 +1,4 @@
+/* Need to fix such that i create a toggle and eveything switchs colors */
 /* Button styling */
 .theme-toggle-button {
   padding: 0.5rem 1rem;
@@ -31,3 +32,56 @@ body.light-mode {
   background-color: #fef3e0; /* cream warm background */
   color: #1f2937; /* dark text */
 }
+
+/* This is the code for adding the toggle css */
+/* Toggle container */
+/* .theme-toggle {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin: 0 1rem;
+} */
+
+/* Hidden checkbox */
+/* .theme-toggle input {
+  display: none;
+} */
+
+/* The slider */
+/* .slider {
+  width: 50px;
+  height: 25px;
+  background-color: #ccc;
+  border-radius: 25px;
+  position: relative;
+  transition: background-color 0.3s;
+} */
+
+/* The circle inside slider */
+/* .slider::before {
+  content: "";
+  position: absolute;
+  width: 21px;
+  height: 21px;
+  left: 2px;
+  top: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s;
+} */
+
+/* Checked state */
+/* .theme-toggle input:checked + .slider {
+  background-color: #2563eb; }
+
+.theme-toggle input:checked + .slider::before {
+  transform: translateX(25px);
+} */
+
+/* Optional: labels */
+/* .toggle-label {
+  margin-left: 10px;
+  font-weight: bold;
+  user-select: none;
+  color: inherit;
+} */

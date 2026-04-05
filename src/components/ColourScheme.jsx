@@ -19,9 +19,11 @@ const ColorScheme = () => {
   const toggleTheme = () => setDarkMode(!darkMode);
 
   return (
-    <button className="theme-toggle-button" onClick={toggleTheme}>
-      {darkMode ? "Switch to Light Mode" : "Switch to Dark Mode"}
-    </button>
+    <label className="theme-toggle">
+      <input type="checkbox" checked={darkMode} onChange={toggleTheme} />
+      <span className="slider"></span>
+      <span className="toggle-label">{darkMode ? "Dark Mode" : "Light Mode"}</span>
+    </label> 
   );
 };
 
