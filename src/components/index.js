@@ -1,4 +1,3 @@
 import Navbar from "./Navbar";
-import MainPage from "./MainPage";
-
-export { Navbar, MainPage };
+import Searchbar from "./Searchbar";
+export { Navbar, Searchbar};

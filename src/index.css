@@ -1,4 +1,5 @@
-:root {
+/* I have no idea if this is useful or not lol */
+/* :root {
   --text: #6b6375;
   --text-h: #08060d;
   --bg: #fff;
@@ -105,7 +106,7 @@ code,
 
 code {
   font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
+  line-height: 135%; */
+  /* padding: 4px 8px;
   background: var(--code-bg);
-}
+} */
