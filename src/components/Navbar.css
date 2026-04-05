@@ -2,14 +2,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: #1f2937; /* dark background */
   color: white;
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
+/* Left buttons */
 .navbar-left button {
   margin-right: 1rem;
   background: transparent;
@@ -18,12 +17,14 @@
   border-radius: 5px;
   padding: 0.5rem 1rem;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.navbar-left button:hover {
-  background-color: white;
-  color: black;
-}
+/* Unique hover colors */
+.navbar-left button:nth-child(1):hover { background-color: #f43f5e; color: white; } /* red */
+.navbar-left button:nth-child(2):hover { background-color: #3b82f6; color: white; } /* blue */
+.navbar-left button:nth-child(3):hover { background-color: #10b981; color: white; } /* green */
+.navbar-left button:nth-child(4):hover { background-color: #f59e0b; color: white; } /* yellow/orange */
 
 .navbar-right img.navbar-logo {
   width: 50px;
