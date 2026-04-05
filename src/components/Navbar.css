@@ -1,31 +1,41 @@
+/* Navbar container */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
+  padding: 0.5rem 1rem;
   position: sticky;
   top: 0;
   z-index: 100;
+  color: inherit; /* inherit from body */
 }
 
 /* Left buttons */
 .navbar-left button {
   margin-right: 1rem;
-  background: transparent;
-  color: white;
-  border: 1px solid white;
+  border: 1px solid currentColor; /* inherit border from text color */
   border-radius: 5px;
   padding: 0.5rem 1rem;
+  background: transparent;
   cursor: pointer;
+  font-weight: bold;
   transition: all 0.3s ease;
+  color: inherit; /* default text color based on body theme */
 }
 
-/* Unique hover colors */
-.navbar-left button:nth-child(1):hover { background-color: #f43f5e; color: white; } /* red */
-.navbar-left button:nth-child(2):hover { background-color: #3b82f6; color: white; } /* blue */
-.navbar-left button:nth-child(3):hover { background-color: #10b981; color: white; } /* green */
-.navbar-left button:nth-child(4):hover { background-color: #f59e0b; color: white; } /* yellow/orange */
+/* Dark mode hover: only background changes */
+body.dark-mode .navbar-left button:nth-child(1):hover { background-color: #f43f5e; }
+body.dark-mode .navbar-left button:nth-child(2):hover { background-color: #3b82f6; }
+body.dark-mode .navbar-left button:nth-child(3):hover { background-color: #10b981; }
+body.dark-mode .navbar-left button:nth-child(4):hover { background-color: #f59e0b; }
 
+/* Light mode hover: only background changes */
+body.light-mode .navbar-left button:nth-child(1):hover { background-color: #fca5a5; }
+body.light-mode .navbar-left button:nth-child(2):hover { background-color: #93c5fd; }
+body.light-mode .navbar-left button:nth-child(3):hover { background-color: #6ee7b7; }
+body.light-mode .navbar-left button:nth-child(4):hover { background-color: #fde68a; }
+
+/* Navbar logo */
 .navbar-right img.navbar-logo {
   width: 50px;
   height: 50px;

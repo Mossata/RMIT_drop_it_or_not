@@ -36,3 +36,22 @@
 .searchbar button:hover {
   background-color: #1d4ed8; /* darker blue on hover */
 }
+
+/* Buttons in app */
+body.dark-mode button {
+    background-color: #2563eb;
+    color: white;
+}
+
+body.light-mode button {
+    background-color: #f59e0b;
+    color: #1f2937;
+}
+
+/* Optional: Searchbar spacing */
+.searchbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 0;
+}
