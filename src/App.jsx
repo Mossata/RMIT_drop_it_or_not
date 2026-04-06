@@ -1,6 +1,6 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom"
 import { Navbar , Searchbar} from "./components";
-// import './App.css'
+import './App.css'
 // DO NOT TOUCH SUPABASE
 // import supabase from './superbase_backend_client'
 
