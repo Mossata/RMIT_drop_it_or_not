@@ -1,23 +1,78 @@
 /* src/pages/Subjects.css */
 
+/* Page container */
 .subjects-page {
   padding: 2rem;
+  transition: background 0.3s, color 0.3s;
 }
 
+/* Grid layout */
 .subjects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1rem;
 }
 
+/* Subject cards */
 .subject-card {
-  background: #1e1e1e;
   padding: 1rem;
   border-radius: 12px;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.2s, background 0.3s, color 0.3s;
 }
 
+/* Hover effect */
 .subject-card:hover {
   transform: scale(1.03);
+}
+
+/* Dark theme */
+body.dark-mode .subjects-page {
+  background: #0d0d0d;
+  color: white;
+}
+
+body.dark-mode .subject-card {
+  background: #1e1e1e;
+  color: white;
+}
+
+body.dark-mode .subject-card:hover {
+  background: #2a2a2a;
+}
+
+/* Light theme */
+body.light-mode .subjects-page {
+  background: #fff7ed;
+  color: #1f2937;
+}
+
+body.light-mode .subject-card {
+  background: #fff1e6;
+  color: #1f2937;
+}
+
+body.light-mode .subject-card:hover {
+  background: #fde9d9;
+}
+
+/* Optional: add shadows like search dropdown */
+body.dark-mode .subject-card {
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+body.light-mode .subject-card {
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Card titles & subtitles */
+.subject-card h2 {
+  margin: 0 0 5px 0;
+  font-size: 1.2rem;
+}
+
+.subject-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  opacity: 0.8;
 }
