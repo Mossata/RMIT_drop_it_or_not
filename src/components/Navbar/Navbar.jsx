@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ColourScheme from "./ColourScheme";
+import ColourScheme from "../ColourScheme/ColourScheme";
 import "./NavBar.css";
 
 const Navbar = () => {

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import {search} from "../assets"
+import {search} from "../../assets"
 import "./Searchbar.css"
 
 

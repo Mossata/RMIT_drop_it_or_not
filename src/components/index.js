@@ -1,4 +1,3 @@
-import Navbar from "./Navbar";
-import Searchbar from "./Searchbar";
-import Subjects from "./Subjects";
-export { Navbar, Searchbar, Subjects};
+import Navbar from "./Navbar/Navbar";
+import Searchbar from "./Searchbar/Searchbar";
+export { Navbar, Searchbar};
