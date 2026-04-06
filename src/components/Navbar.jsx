@@ -1,26 +1,36 @@
 import React from "react";
-import { Link } from 'react-router-dom';
-import {logo} from "../assets";
+import { Link } from "react-router-dom";
 import ColourScheme from "./ColourScheme";
-import "./NavBar.css"
-
+import "./NavBar.css";
 
 const Navbar = () => {
   return (
-     <nav className="navbar">
+    <nav className="navbar">
       <div className="navbar-left">
-        <button>Log in/Sign Up</button>
-        <button>Search</button>
-        <button>Add Subject</button>
-        <button>Subjects</button>
+
+        <Link to="/">
+          <button>Search</button>
+        </Link>
+
+        <Link to="/subjects">
+          <button>Subjects</button>
+        </Link>
+
+        <Link to="/add-subject">
+          <button>Add Subject</button>
+        </Link>
+
+        <Link to="/auth">
+          <button>Log in / Sign Up</button>
+        </Link>
+
       </div>
+
       <div className="navbar-right">
         <ColourScheme />
       </div>
-
     </nav>
-  
   );
 };
 
-export default Navbar
+export default Navbar;

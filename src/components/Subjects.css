@@ -1,0 +1,23 @@
+/* src/pages/Subjects.css */
+
+.subjects-page {
+  padding: 2rem;
+}
+
+.subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.subject-card {
+  background: #1e1e1e;
+  padding: 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.subject-card:hover {
+  transform: scale(1.03);
+}
