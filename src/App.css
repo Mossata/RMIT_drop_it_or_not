@@ -39,13 +39,12 @@
 
 /* Buttons in app */
 body.dark-mode button {
-    background-color: #2563eb;
     color: white;
 }
 
 body.light-mode button {
-    background-color: #f59e0b;
     color: #1f2937;
+    border-color: #111827;
 }
 
 /* Optional: Searchbar spacing */
