@@ -36,7 +36,7 @@ const Subjects = () => {
         {subjects.map((subject) => (
           <div key={subject.id} className="subject-card">
             <h2>{subject.name}</h2>
-            <p>{subject.code}</p>
+            <p>{subject.course_code}</p>
             <p>⭐ {subject.rating} / 5</p>
             {/* Example link to details page */}
             {/* <Link to={`/subjects/${subject.id}`}>View Details</Link> */}
