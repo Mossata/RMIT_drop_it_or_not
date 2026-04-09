@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Navbar, Searchbar} from "./components";
 import { Subjects } from "./Pages";
 import "./App.css";
+import Supabase from "./SupabaseClient"
 
 const App = () => {
   return (

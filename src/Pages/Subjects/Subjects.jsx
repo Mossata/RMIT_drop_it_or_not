@@ -1,32 +1,47 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
+import Supabase from "../../SupabaseClient";
 import "./Subjects.css";
 
 const Subjects = () => {
+  const [subjects, setSubjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchSubjects = async () => {
+      try {
+        const { data, error } = await Supabase
+          .from("subjects")      // your Supabase table name
+          .select("*");          // select all columns
+
+        if (error) throw error;
+        setSubjects(data);
+      } catch (err) {
+        console.error("Error fetching subjects:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchSubjects();
+  }, []);
+
+  if (loading) return <p>Loading subjects...</p>;
+
   return (
     <div className="subjects-page">
       <h1>All Subjects</h1>
 
       <div className="subjects-grid">
-
-        <div className="subject-card">
-          <h2>Algorithms & Analysis</h2>
-          <p>COSC2123</p>
-          <p>⭐ 4.6 / 5</p>
-        </div>
-
-        <div className="subject-card">
-          <h2>Software Engineering Fundamentals</h2>
-          <p>COSC2296</p>
-          <p>⭐ 4.2 / 5</p>
-        </div>
-
-        <div className="subject-card">
-          <h2>Artificial Intelligence</h2>
-          <p>COSC1125</p>
-          <p>⭐ 4.8 / 5</p>
-        </div>
-
+        {subjects.map((subject) => (
+          <div key={subject.id} className="subject-card">
+            <h2>{subject.name}</h2>
+            <p>{subject.code}</p>
+            <p>⭐ {subject.rating} / 5</p>
+            {/* Example link to details page */}
+            {/* <Link to={`/subjects/${subject.id}`}>View Details</Link> */}
+          </div>
+        ))}
       </div>
     </div>
   );
