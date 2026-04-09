@@ -1,5 +1,3 @@
-/* src/pages/Subjects.css */
-
 /* Page container */
 .subjects-page {
   padding: 2rem;
@@ -18,12 +16,38 @@
   padding: 1rem;
   border-radius: 12px;
   cursor: pointer;
-  transition: 0.2s, background 0.3s, color 0.3s;
+  transition: transform 0.2s ease, background 0.3s, color 0.3s, max-height 0.3s ease;
+  overflow: hidden;
+  max-height: 120px; /* collapsed height */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 /* Hover effect */
 .subject-card:hover {
   transform: scale(1.03);
+}
+
+/* Expanded card */
+.subject-card.expanded {
+  max-height: 500px; /* enough to show description and date */
+}
+
+/* Extra content */
+.subject-extra {
+  margin-top: 0.5rem;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.subject-extra p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.subject-extra .created-at {
+  font-size: 0.8rem;
+  color: gray;
 }
 
 /* Dark theme */
@@ -35,6 +59,7 @@ body.dark-mode .subjects-page {
 body.dark-mode .subject-card {
   background: #1e1e1e;
   color: white;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
 
 body.dark-mode .subject-card:hover {
@@ -50,19 +75,11 @@ body.light-mode .subjects-page {
 body.light-mode .subject-card {
   background: #fff1e6;
   color: #1f2937;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 body.light-mode .subject-card:hover {
   background: #fde9d9;
-}
-
-/* Optional: add shadows like search dropdown */
-body.dark-mode .subject-card {
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-}
-
-body.light-mode .subject-card {
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
 /* Card titles & subtitles */

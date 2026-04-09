@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
 import Supabase from "../../SupabaseClient";
 import "./Subjects.css";
 
 const Subjects = () => {
   const [subjects, setSubjects] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [expandedId, setExpandedId] = useState(null); // track expanded card
 
   useEffect(() => {
     const fetchSubjects = async () => {
       try {
         const { data, error } = await Supabase
-          .from("subjects")      // your Supabase table name
-          .select("*");          // select all columns
+          .from("subjects")
+          .select("*");
 
         if (error) throw error;
         setSubjects(data);
@@ -34,12 +34,25 @@ const Subjects = () => {
 
       <div className="subjects-grid">
         {subjects.map((subject) => (
-          <div key={subject.id} className="subject-card">
+          <div
+            key={subject.id}
+            className={`subject-card ${expandedId === subject.id ? "expanded" : ""}`}
+            onClick={() =>
+              setExpandedId(expandedId === subject.id ? null : subject.id)
+            }
+          >
             <h2>{subject.name}</h2>
             <p>{subject.course_code}</p>
-            <p>⭐ {subject.rating} / 5</p>
-            {/* Example link to details page */}
-            {/* <Link to={`/subjects/${subject.id}`}>View Details</Link> */}
+            <p>⭐ {subject.rating || "N/A"} / 5</p>
+
+            {expandedId === subject.id && (
+              <div className="subject-extra">
+                <p>{subject.description}</p>
+                <p className="created-at">
+                  Created at: {new Date(subject.created_at).toLocaleString()}
+                </p>
+              </div>
+            )}
           </div>
         ))}
       </div>
