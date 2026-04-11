@@ -9,7 +9,7 @@ const Searchbar = () => {
   const [results, setResults] = useState([]);
   const navigate = useNavigate();
 
-  // LIVE SEARCH
+  // ✅ LIVE SEARCH
   useEffect(() => {
     const delay = setTimeout(() => {
       if (query.trim() === "") {
@@ -20,30 +20,26 @@ const Searchbar = () => {
       const fetchResults = async () => {
         const { data, error } = await Supabase
           .from("subjects")
-          .select()
-          .ilike('name', `%${query}%`)
+          .select("id, name, course_code,field_id")
+          .ilike("name", `%${query}%`)
           .limit(5);
 
         if (!error) setResults(data);
       };
 
       fetchResults();
-    }, 300); // debounce
+    }, 300);
 
     return () => clearTimeout(delay);
   }, [query]);
 
-  console.log("RAW QUERY:", query);
-console.log("TYPE:", typeof query);
-
-  // CLICK RESULT → go to subjects page with filter
+  // ✅ CLICK → send subject + field
   const handleClick = (subject) => {
-    navigate(`/subjects?subject=${subject.id}`);
+    navigate(`/subjects?subject=${subject.id}&field=${subject.field_id}`);
   };
 
   return (
     <div className="search-container">
-
       {/* SEARCH INPUT */}
       <div className="search-bar">
         <img src={search} alt="search" className="icon" />
@@ -65,7 +61,6 @@ console.log("TYPE:", typeof query);
       {/* DROPDOWN */}
       {query && (
         <div className="dropdown">
-
           <div className="section-header">
             <span>Subjects</span>
           </div>
@@ -90,10 +85,8 @@ console.log("TYPE:", typeof query);
               </div>
             </div>
           ))}
-
         </div>
       )}
-
     </div>
   );
 };
