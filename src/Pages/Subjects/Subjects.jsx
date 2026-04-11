@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import Supabase from "../../SupabaseClient";
 import "./Subjects.css";
 
@@ -7,6 +8,8 @@ const Subjects = () => {
   const [fields, setFields] = useState([]);
   const [loading, setLoading] = useState(true);
   const [expandedId, setExpandedId] = useState(null);
+  const [searchParams] = useSearchParams();
+  const subjectId = searchParams.get("subject");
 
   // multi-select field filter
   const [selectedFields, setSelectedFields] = useState([]);
@@ -28,32 +31,37 @@ const Subjects = () => {
   }, []);
 
   // fetch subjects (backend filtering)
-  useEffect(() => {
-    const fetchSubjects = async () => {
-      setLoading(true);
+ useEffect(() => {
+  const fetchSubjects = async () => {
+    setLoading(true);
 
-      try {
-        let query = Supabase.from("subjects").select("*");
+    try {
+      let query = Supabase.from("subjects").select("*");
 
-        // backend multi-filter
-        if (selectedFields.length > 0) {
-          query = query.in("field_id", selectedFields);
-        }
-
-        const { data, error } = await query;
-
-        if (error) throw error;
-
-        setSubjects(data);
-      } catch (err) {
-        console.error("Error fetching subjects:", err);
-      } finally {
-        setLoading(false);
+      // FIELD FILTER (your existing sidebar)
+      if (selectedFields.length > 0) {
+        query = query.in("field_id", selectedFields);
       }
-    };
 
-    fetchSubjects();
-  }, [selectedFields]);
+      // SUBJECT CLICK FILTER (from search)
+      if (subjectId) {
+        query = query.eq("id", subjectId);
+      }
+
+      const { data, error } = await query;
+
+      if (error) throw error;
+
+      setSubjects(data);
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  fetchSubjects();
+}, [selectedFields, subjectId]); 
 
   // checkbox toggle logic
   const toggleField = (fieldId) => {
