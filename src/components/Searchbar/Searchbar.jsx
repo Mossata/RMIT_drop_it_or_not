@@ -21,7 +21,7 @@ const Searchbar = () => {
         const { data, error } = await Supabase
           .from("subjects")
           .select("id, name, course_code,field_id")
-          .ilike("name", `%${query}%`)
+          .ilike("name", `%${query.trim()}%`)
           .limit(5);
 
         if (!error) setResults(data);
@@ -31,7 +31,9 @@ const Searchbar = () => {
     }, 300);
 
     return () => clearTimeout(delay);
-  }, [query]);
+  }, [query.trim()]);
+
+  console.log(query.trim())
 
   // ✅ CLICK → send subject + field
   const handleClick = (subject) => {
